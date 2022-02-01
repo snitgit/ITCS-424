@@ -42,8 +42,10 @@ class FirstPage extends StatelessWidget {
   }
 }
 
-class SecondRoute extends StatelessWidget {
-  const SecondRoute({
+class SecondPage extends StatelessWidget {
+  // TODO 2: Create 'data' as string here
+
+  const SecondPage({
     Key? key,
     // TODO 3: define data as string as argument of constructor HERE
   }) : super(key: key);
