@@ -38,7 +38,11 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Column(
         children: <Widget>[
-          Expanded(child: change ? _buildWorld() : _buildFlutter())
+          Expanded(child: change ? _buildWorld() : _buildFlutter()),
+          GestureDetector(
+            onTap: () => setState(() => change = !change),
+            child: Text('Changed Tigger'),
+          )
         ],
       ),
     );
