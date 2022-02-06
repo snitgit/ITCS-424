@@ -1,62 +1,64 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(const MyApp());
-}
+void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
+  static const String _title = 'Flutter Code Sample';
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Tree Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const MyHomePage(),
+    return const MaterialApp(
+      title: _title,
+      home: MyStatefulWidget(),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key}) : super(key: key);
+class MyStatefulWidget extends StatefulWidget {
+  const MyStatefulWidget({Key? key}) : super(key: key);
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<MyStatefulWidget> createState() => _MyStatefulWidgetState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
-  bool change = false;
+class _MyStatefulWidgetState extends State<MyStatefulWidget> {
+  bool _lightIsOn = false;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Three Tree Demo'),
+      body: Container(
+        alignment: FractionalOffset.center,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Icon(
+                Icons.lightbulb_outline,
+                color: _lightIsOn ? Colors.yellow.shade600 : Colors.black,
+                size: 60,
+              ),
+            ),
+            GestureDetector(
+              onTap: () {
+                setState(() {
+                  // Toggle light when tapped.
+                  _lightIsOn = !_lightIsOn;
+                });
+              },
+              child: Container(
+                color: Colors.yellow.shade600,
+                padding: const EdgeInsets.all(8),
+                // Change button text when light changes state.
+                child: Text(_lightIsOn ? 'TURN LIGHT OFF' : 'TURN LIGHT ON'),
+              ),
+            ),
+          ],
+        ),
       ),
-      body: Column(
-        children: <Widget>[
-          Expanded(child: change ? _buildWorld() : _buildFlutter()),
-          GestureDetector(
-            onTap: () => setState(() => change = !change),
-            child: Text('Changed Tigger'),
-          )
-        ],
-      ),
-    );
-  }
-
-  Widget _buildWorld() {
-    return Row(
-      children: <Widget>[Text('Hello World')],
-    );
-  }
-
-  Widget _buildFlutter() {
-    return Row(
-      children: <Widget>[Text('Hello Flutter')],
     );
   }
 }
