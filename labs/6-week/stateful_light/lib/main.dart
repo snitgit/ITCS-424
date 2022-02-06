@@ -24,7 +24,7 @@ class MyStatefulWidget extends StatefulWidget {
 }
 
 class _MyStatefulWidgetState extends State<MyStatefulWidget> {
-  bool _lightIsOn = false;
+  // TODO 1: Define state variable here, _lightIsOn
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +38,9 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
               padding: const EdgeInsets.all(8.0),
               child: Icon(
                 Icons.lightbulb_outline,
-                color: _lightIsOn ? Colors.yellow.shade600 : Colors.black,
+
+                // TODO 2: If _lightIsOn then set icon color to Yellow otherwise Black.
+
                 size: 60,
               ),
             ),
@@ -53,7 +55,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 color: Colors.yellow.shade600,
                 padding: const EdgeInsets.all(8),
                 // Change button text when light changes state.
-                child: Text(_lightIsOn ? 'TURN LIGHT OFF' : 'TURN LIGHT ON'),
+                // TODO 3: Update Text Message depend on state of  _lightIsOn  'TURN LIGHT OFF' or 'TURN LIGHT ON'
               ),
             ),
           ],
