@@ -30,7 +30,10 @@ class _ExampleState extends State<Example> {
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
-        Expanded(child: change ? _buildWorld() : _buildFlutter())
+        // TODO 1: Insert code: that show MESSAGE based state of 'change"
+        _buildWorld(),
+        //TODO 2: When User pass tap screen, triger state of 'chagne' variable
+        GestureDetector()
       ],
     );
   }
